@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Reservation2
+namespace 会議室予約
 {
     public class Class1
     {
