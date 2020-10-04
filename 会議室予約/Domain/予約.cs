@@ -17,19 +17,6 @@ namespace 会議室予約.Domain
         //     if(予約可能ルール().isOK())
         // }
     }
-
-    /// <summary>
-    /// 利用可能日：名前付けられた式
-    /// </summary>
-    internal class 予約可能ルール
-    {
-        public bool IsOk() => true;
-    }
-    
-    internal class 予約者
-    {
-    }
-
     internal class 利用期間
     {
         private 開始年月日時分 かいしねんがっぴ;
