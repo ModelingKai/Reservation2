@@ -18,8 +18,7 @@ namespace 会議室予約.Domain
 
     internal class 予約期間_むらさき
     {
-        private 利用日 りようび;
-        private 利用開始時刻 りようかいしじこく;
-        private 利用終了時刻 りようしゅうりょうじこく;
+        private 利用開始年月日時分 りようかいしねんがっぴ;
+        private 利用終了年月日時分 りようしゅうねんがっぴ;
     }
 }
