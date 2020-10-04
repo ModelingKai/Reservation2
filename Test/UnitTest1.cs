@@ -11,15 +11,5 @@ namespace Test
         {
             1.Is(2);
         }
-
-        [Fact]
-        public void 会議室を予約する()
-        {
-            // どんなメソッド呼ぶ？
-            usecase.会議室を予約をする();
-            
-            true.Is(false);
-            
-        }
     }
 }
