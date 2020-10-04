@@ -19,7 +19,7 @@ namespace 会議室予約.Domain
     }
 
     /// <summary>
-    /// 30日以内なら予約可能なやつ
+    /// 利用可能日：名前付けられた式
     /// </summary>
     internal class 予約可能ルール
     {
