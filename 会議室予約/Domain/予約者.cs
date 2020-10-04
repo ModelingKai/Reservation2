@@ -1,6 +1,6 @@
 namespace 会議室予約.Domain
 {
-    internal class 予約者
+    public class 予約者
     {
     }
 }
