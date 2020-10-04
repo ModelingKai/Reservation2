@@ -6,7 +6,8 @@ namespace 会議室予約.Domain
     public class 予約
     {
         // どんなモノもっている？
-        private 予約日 よやくび;
+        
+        
         private 予約者 よやくしゃ;
         private 予約期間_むらさき よやくきかん;
         private 会議参加予定者 かいぎさんかよていしゃ;
@@ -17,6 +18,8 @@ namespace 会議室予約.Domain
 
     internal class 予約期間_むらさき
     {
-      
+        private 利用日 りようび;
+        private 利用開始時刻 りようかいしじこく;
+        private 利用終了時刻 りようしゅうりょうじこく;
     }
 }
