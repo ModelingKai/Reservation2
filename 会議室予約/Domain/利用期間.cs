@@ -11,7 +11,7 @@ namespace 会議室予約.Domain
 
         public 利用期間(開始年月日時分 かいしねんがっぴじふん, 終了年月日時分 しゅうりょうねんがっぴじふん, DateTime きょうのひづけ)
         {
-            if(!new 予約可能ルール(かいしねんがっぴじふん, しゅうりょうねんがっぴじふん, きょうのひづけ).isSatisfied())
+            if(!new 予約可能ルール(かいしねんがっぴじふん, しゅうりょうねんがっぴじふん, きょうのひづけ).IsSatisfied())
                 throw new ArgumentException();
  
             this.かいしねんがっぴじふん = かいしねんがっぴじふん;
