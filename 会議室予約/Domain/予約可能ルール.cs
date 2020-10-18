@@ -28,26 +28,22 @@ namespace 会議室予約.Domain
         public bool IsSatisfied()
         {
             //// 10:00-19:00まではOK！
-            //if (会議室オープン時間になっていないか())
-            //    return false;
+            if (会議室オープン時間になっていないか())
+                return false;
 
-            //if (会議室クローズ時間を超えているか())
-            //    return false;
-
-
+            if (会議室クローズ時間を超えているか())
+                return false;
+            
             // TODO: 判定実装するべ。
             var 利用可能時間帯 = new 利用可能時間帯();
             //if (利用可能時間帯.範囲外(_利用期間)) {
             //    return false;
             //}
 
-
-
             var 利用可能日 = new 利用可能日(_予約可能期間の起点日);
             if (!利用可能日.含むのかしら(_開始年月日時分)) {
                 return false;
             }
-
 
             return true;
 
