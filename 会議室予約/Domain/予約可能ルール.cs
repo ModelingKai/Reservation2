@@ -11,6 +11,8 @@ namespace 会議室予約.Domain
         private 終了年月日時分 _終了年月日時分;
         // TODO: これは本当にDateTimeでいいのか?
         private DateTime _予約可能期間の起点日;
+        private const int 会議室オープン時刻 = 10;
+        private const int 会議室クローズ時刻 = 19;
         
         public 予約可能ルール(開始年月日時分 かいしねんがっぴじふん, 終了年月日時分 しゅうりょうねんがっぴじふん, DateTime 予約可能期間の起点日)
         {
@@ -21,11 +23,11 @@ namespace 会議室予約.Domain
 
         public bool IsSatisfied()
         {
-            if (_開始年月日時分.Value.Hour < 10)
+            // 10:00-19:00まではOK！
+            if (会議室オープン時間になっていないか())
                 return false;
             
-            if (_終了年月日時分.Value.Hour > 19 || 
-                (_終了年月日時分.Value.Hour == 19 && _終了年月日時分.Value.Minute > 0))
+            if (会議室クローズ時間を超えているか())
                 return false;
 
 
@@ -37,6 +39,17 @@ namespace 会議室予約.Domain
 
             return true;
 
+        }
+
+        private bool 会議室オープン時間になっていないか()
+        {
+            return _開始年月日時分.Value.Hour < 会議室オープン時刻;
+        }
+
+        private bool 会議室クローズ時間を超えているか()
+        {
+            return _終了年月日時分.Value.Hour > 会議室クローズ時刻 || 
+                   (_終了年月日時分.Value.Hour == 会議室クローズ時刻 && _終了年月日時分.Value.Minute > 0);
         }
     }
 }
