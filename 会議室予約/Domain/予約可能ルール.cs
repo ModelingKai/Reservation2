@@ -19,6 +19,7 @@ namespace 会議室予約.Domain
             this._開始年月日時分 = かいしねんがっぴじふん;
             this._終了年月日時分 = しゅうりょうねんがっぴじふん;
             this._予約可能期間の起点日 = 予約可能期間の起点日;
+            this._利用期間をつくろうぜ
         }
 
         public bool IsSatisfied()
@@ -29,6 +30,8 @@ namespace 会議室予約.Domain
             
             if (会議室クローズ時間を超えているか())
                 return false;
+            
+            bool isOk? = 会議室オープン時間.IsSatisfied(利用期間)
 
 
             var 利用可能日 = new 利用可能日(_予約可能期間の起点日);
