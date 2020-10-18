@@ -7,31 +7,40 @@ namespace 会議室予約.Domain
     /// </summary>
     internal class 予約可能ルール
     {
+        private const int 会議室オープン時刻 = 10;
+        private const int 会議室クローズ時刻 = 19;
+
+
         private 開始年月日時分 _開始年月日時分;
         private 終了年月日時分 _終了年月日時分;
         // TODO: これは本当にDateTimeでいいのか?
-        private DateTime _予約可能期間の起点日;
-        private const int 会議室オープン時刻 = 10;
-        private const int 会議室クローズ時刻 = 19;
+        private readonly DateTime _予約可能期間の起点日;
+
+
         
-        public 予約可能ルール(開始年月日時分 かいしねんがっぴじふん, 終了年月日時分 しゅうりょうねんがっぴじふん, DateTime 予約可能期間の起点日)
+        public 予約可能ルール(開始年月日時分 開始年月日時分, 終了年月日時分 終了年月日時分, DateTime 予約可能期間の起点日)
         {
-            this._開始年月日時分 = かいしねんがっぴじふん;
-            this._終了年月日時分 = しゅうりょうねんがっぴじふん;
-            this._予約可能期間の起点日 = 予約可能期間の起点日;
-            this._利用期間をつくろうぜ
+            _開始年月日時分 = 開始年月日時分;
+            _終了年月日時分 = 終了年月日時分;
+            _予約可能期間の起点日 = 予約可能期間の起点日;
         }
 
         public bool IsSatisfied()
         {
-            // 10:00-19:00まではOK！
-            if (会議室オープン時間になっていないか())
-                return false;
-            
-            if (会議室クローズ時間を超えているか())
-                return false;
-            
-            bool isOk? = 会議室オープン時間.IsSatisfied(利用期間)
+            //// 10:00-19:00まではOK！
+            //if (会議室オープン時間になっていないか())
+            //    return false;
+
+            //if (会議室クローズ時間を超えているか())
+            //    return false;
+
+
+            // TODO: 判定実装するべ。
+            var 利用可能時間帯 = new 利用可能時間帯();
+            //if (利用可能時間帯.範囲外(_利用期間)) {
+            //    return false;
+            //}
+
 
 
             var 利用可能日 = new 利用可能日(_予約可能期間の起点日);
