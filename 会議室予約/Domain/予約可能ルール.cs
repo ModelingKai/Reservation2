@@ -63,10 +63,10 @@ namespace 会議室予約.Domain
         }
     }
 
-    public class 利用時間帯
+    public class 利用時間帯 : IEquatable<利用時間帯>
     {
-        private 時分 _かいしじふん { get; set; }
-        private 時分 _しゅうりょうじふん { get; set; }
+        public 時分 _かいしじふん { get; }
+        public 時分 _しゅうりょうじふん { get; }
 
         public 利用時間帯(時分 かいしじふん, 時分 しゅうりょうじふん )
         {
@@ -78,11 +78,21 @@ namespace 会議室予約.Domain
 
         public bool IsOverrap(利用時間帯 other)
         {
+            if (this.Equals(other)) return true;
             return false;
+        }
+
+
+        public bool Equals(利用時間帯 other)
+        {
+            if (other == null) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return this._かいしじふん.Equals(other._かいしじふん) && 
+                   this._しゅうりょうじふん.Equals(other._しゅうりょうじふん);
         }
     }
 
-    public class 時分
+    public class 時分 : IEquatable<時分>
     {
         private DateTime Value { get; set; }
 
@@ -100,6 +110,13 @@ namespace 会議室予約.Domain
         public int Minute()
         {
             return Value.Minute;
+        }
+
+        public bool Equals(時分 other)
+        {
+            if (other == null) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return this.Hour() == other.Hour() && this.Minute() == other.Minute();
         }
     }
 }

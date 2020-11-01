@@ -45,6 +45,11 @@ namespace Test
                 new 時分(10,0),new 時分(12, 0),
                 new 時分(9, 0), new 時分(11, 0),
             });
+            _testData.Add(new object[]
+            {
+                new 時分(10,0),new 時分(12, 0),
+                new 時分(10, 0), new 時分(12, 0),
+            });
         }
         public IEnumerator<object[]> GetEnumerator() => _testData.GetEnumerator();
 
