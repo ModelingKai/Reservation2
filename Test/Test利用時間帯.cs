@@ -46,17 +46,6 @@ namespace Test
                 new 時分(9, 0), new 時分(11, 0),
             });
         }
-        
-        // public IEnumerator<object[]> GetEnumerator()
-        // {
-        //     yield return new object[] {
-        //         new 時分(10,0),
-        //         new 時分(12, 0),
-        //         new 時分(13, 0),
-        //         new 時分(14, 0),
-        //         new 時分(14, 0),
-        //     };
-        // }
         public IEnumerator<object[]> GetEnumerator() => _testData.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
