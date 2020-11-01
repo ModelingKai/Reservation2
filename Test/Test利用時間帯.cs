@@ -26,9 +26,29 @@ namespace Test
             Assert.True(sut.IsOverrap(other));
         }
 
+        [Fact]
         public void 時分の比較()
         {
+            var sut = new 時分(10, 0);
+            var other = new 時分(12, 0);
             
+            Assert.True(sut.CompareTo(other) < 0);
+        }
+        [Fact]
+        public void 時分の比較三個目()
+        {
+            var sut = new 時分(12, 0);
+            var other = new 時分(12, 0);
+            
+            Assert.True(sut.CompareTo(other) == 0);
+        }
+        [Fact]
+        public void 時分の比較四個目()
+        {
+            var sut = new 時分(12, 45);
+            var other = new 時分(12, 0);
+            
+            Assert.True(sut.CompareTo(other) > 0);
         }
     }
     
