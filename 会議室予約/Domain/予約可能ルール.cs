@@ -79,6 +79,7 @@ namespace 会議室予約.Domain
         public bool IsOverrap(利用時間帯 other)
         {
             if (this.Equals(other)) return true;
+            if (this._しゅうりょうじふん.CompareTo(other._かいしじふん) > 0) return true;
             return false;
         }
 
@@ -92,7 +93,7 @@ namespace 会議室予約.Domain
         }
     }
 
-    public class 時分 : IEquatable<時分>
+    public class 時分 : IEquatable<時分>, IComparable<時分>
     {
         private DateTime Value { get; set; }
 
@@ -118,5 +119,27 @@ namespace 会議室予約.Domain
             if (ReferenceEquals(this, other)) return true;
             return this.Hour() == other.Hour() && this.Minute() == other.Minute();
         }
+
+        public int CompareTo(時分 other)
+        {
+            if (other == null) return 1;
+
+            if (ReferenceEquals(this, other)) return 0;
+
+            var hourCompareResult = this.Hour().CompareTo(other.Hour());
+            if (hourCompareResult == 0)
+            {
+                return this.Minute().CompareTo(other.Minute());
+            }
+            else
+            {
+                return hourCompareResult;
+            }
+        }
+        //
+        // public static bool operator <(時分 self, 時分 other)
+        // {
+        //     if (self.CompareTo(other) > 0) return
+        // }
     }
 }

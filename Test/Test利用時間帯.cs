@@ -25,9 +25,14 @@ namespace Test
 
             Assert.True(sut.IsOverrap(other));
         }
-        
-        
+
+        public void 時分の比較()
+        {
+            
+        }
     }
+    
+    
 
     public class 時分テストデータ : IEnumerable<object[]>
     {
@@ -37,19 +42,30 @@ namespace Test
         {
             _testData.Add(new object[]
             {
-                new 時分(10,0),new 時分(12, 0),
-                new 時分(13, 0), new 時分(14, 0),
+                new 時分(10,0),new 時分(12, 0),  // |========    |
+                new 時分(11, 0), new 時分(14, 0),// |    ========|
             });
             _testData.Add(new object[]
             {
-                new 時分(10,0),new 時分(12, 0),
-                new 時分(9, 0), new 時分(11, 0),
+                new 時分(10,0),new 時分(12, 0),  // |    ========|
+                new 時分(9, 0), new 時分(11, 0), // |========    |
             });
             _testData.Add(new object[]
             {
-                new 時分(10,0),new 時分(12, 0),
-                new 時分(10, 0), new 時分(12, 0),
+                new 時分(10,0),new 時分(12, 0),  // |============|
+                new 時分(10, 0), new 時分(12, 0),// |============|
             });
+            _testData.Add(new object[]
+            {
+                new 時分(10,0),new 時分(12, 0),   // |============|
+                new 時分(11, 0), new 時分(11, 45),// |    =====   |
+            });
+            _testData.Add(new object[]
+            {
+                new 時分(10,0),new 時分(12, 0),  // |    =====   |
+                new 時分(9, 0), new 時分(16, 0), // |============|
+            });
+            
         }
         public IEnumerator<object[]> GetEnumerator() => _testData.GetEnumerator();
 
