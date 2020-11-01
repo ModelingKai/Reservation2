@@ -1,6 +1,7 @@
 namespace 会議室予約.Domain
 {
-    public class 予約者
+    public class 会議室Id
     {
+        
     }
 }

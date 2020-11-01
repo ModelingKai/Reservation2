@@ -24,12 +24,12 @@ namespace 会議室予約.Domain
             会議室オープン時間 = new 利用時間帯(start , end);
         }
 
-        public bool IsSatisfied(予約 よやく)
+        public bool IsSatisfied(利用期間 りようきかん)
         {
             // TODO: 日付を跨っている場合の判定は別で必要だと思う
             
             //// 10:00-19:00の間に、含まれていなかった場合は予約できない
-            if (!会議室オープン時間.IsContains(よやく.りようじかんたい()))
+            if (!会議室オープン時間.IsContains(りようきかん.りようじかんたい()))
             {
                 return false;
             }
