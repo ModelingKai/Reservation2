@@ -27,8 +27,15 @@ namespace 会議室予約.Domain
         {
             if (other == null) return false;
             if (ReferenceEquals(this, other)) return true;
-            return this._かいしじふん.Equals(other._かいしじふん) && 
-                   this._しゅうりょうじふん.Equals(other._しゅうりょうじふん);
+            return this._かいしじふん.Equals(other._かいしじふん) 
+                   && this._しゅうりょうじふん.Equals(other._しゅうりょうじふん);
+        }
+
+        public bool IsContains(利用時間帯 other)
+        {
+            if (this.Equals(other)) return true;
+            return this._かいしじふん.CompareTo(other._かいしじふん) < 0
+                   && this._しゅうりょうじふん.CompareTo(other._しゅうりょうじふん) > 0;
         }
     }
 }
