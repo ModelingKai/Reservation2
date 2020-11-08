@@ -12,4 +12,4 @@ runs:
     args:
         - dotnet
         - test
-        - ${{sln-path}}
+        - ${{inputs.sln-path}}
