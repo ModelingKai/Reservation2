@@ -6,11 +6,11 @@ using 会議室予約.UseCase.Repository;
 
 namespace 会議室予約.UseCase
 {
-    public class 疑似ユースケースクラス
+    public class UseCase
     {
         private readonly I予約Repository _repository;
 
-        public 疑似ユースケースクラス(I予約Repository repository)
+        public UseCase(I予約Repository repository)
         {
             _repository = repository;
         }
