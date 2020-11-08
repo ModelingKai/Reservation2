@@ -2,7 +2,7 @@ name: "dotnet test"
 description: "dotnet test action"
 
 inputs:
-    :sln-path
+    sln-path:
         required: true
         default: '/github/workspace/Reservation2.sln'
     
