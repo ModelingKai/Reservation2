@@ -7,6 +7,11 @@ namespace 会議室予約.UseCase
 {
     public class 疑似ユースケースクラス
     {
+        public class 疑似ユースケースクラス()
+        {
+            
+        }
+        
         public async Task 会議室予約するAsync(予約Request request)
         {
             try
