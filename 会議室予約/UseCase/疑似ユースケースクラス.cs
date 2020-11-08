@@ -1,51 +1,44 @@
-// using 会議室予約.Domain;
-//
-// namespace 会議室予約.UseCase
-// {
-//     public class 疑似ユースケースクラス
-//     {
-//         public void 会議室予約する(予約Request request)
-//         {
-//             // なんかリクエスト受け取る
-//             // 集約にわたす？
-//
-//             予約者 よやくしゃ = new 予約者(request.よやくしゃ);
-//             利用期間 りようきかん = new 利用期間(request.りようきかん);
-//             会議室 かいぎしつ = new 会議室(request.かいぎしつ);
-//             会議参加予定者 かいぎさんかよていしゃ = new 会議参加予定者(request.かいぎさんかよていしゃ);
-//             
-//             予約 よやく =  new 予約(よやくしゃ, りようきかん, かいぎしつ, かいぎさんかよていしゃ);
-//             
-//             予約可能ルール るーる = new 予約可能ルール();
-//
-//
-//             if (るーる.IsSatisfied(よやく))
-//             {
-//                 // リポジトリに予約を登録する
-//                 repository.save(よやく);
-//             }
-//             else
-//             {
-//                 // エラーで返す。
-//             }
-//
-//             // 終了
-//             
-//             
-//             // memo: 予約成立ドメインサービスという風に、予約として可能かどうか、と他予約と被ってなくて保存できるかどうかを1つのサービスにしてしまうやり方
-//             // // 予約が成立するかどうかを判定する
-//             // // 予約が
-//             // 予約成立ドメインサービス(よやく, repository, るーる);
-//             //
-//
-//         }
-//     }
-//
-//     /// <summary>
-//     /// イメージ共有のための、予約者Requestのコード
-//     /// </summary>
-//     public class 予約Request
-//     {
-//         public string よやくしゃ { get; set; }     
-//     }
-// }
+using 会議室予約.Domain;
+
+namespace 会議室予約.UseCase
+{
+    public class 疑似ユースケースクラス
+    {
+        public async Task 会議室予約するAsync(予約Request request)
+        {
+            予約 よやく = new 予約(request.よやくしゃ, request.りようきかん, request.かいぎしつ, request.かいぎさんかよていしゃ);
+
+            予約可能ルール るーる = new 予約可能ルール();
+
+
+            if (るーる.IsSatisfied(よやく))
+            {
+                // リポジトリに予約を登録する
+                await repository.save(よやく);
+            }
+            else
+            {
+                // エラーで返す。
+                throw new UseCaseException("??????????");
+            }
+
+            // 終了
+
+
+            // memo: 予約成立ドメインサービスという風に、予約として可能かどうか、と他予約と被ってなくて保存できるかどうかを1つのサービスにしてしまうやり方
+            // // 予約が成立するかどうかを判定する
+            // // 予約が
+            // 予約成立ドメインサービス(よやく, repository, るーる);
+            //
+
+        }
+    }
+
+    /// <summary>
+    /// イメージ共有のための、予約者Requestのコード
+    /// </summary>
+    public class 予約Request
+    {
+        public string よやくしゃ { get; set; }
+    }
+}
