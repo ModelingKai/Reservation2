@@ -1,0 +1,15 @@
+name: "dotnet test"
+description: "dotnet test action"
+
+inputs:
+    :sln-path
+        required: true
+        default: '/github/workspace/Reservation2.sln'
+    
+runs:
+    using: 'docker'
+    image: 'mcr.microsoft.com/dotnet/core/sdk:3.1'
+    args:
+        - dotnet
+        - test
+        - ${{sln-path}}
