@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using 会議室予約.Domain;
+using 会議室予約.Domain.DomainService;
 using 会議室予約.Domain.Exceptions;
 using 会議室予約.UseCase.Exceptions;
 using 会議室予約.UseCase.Repository;
@@ -36,6 +37,18 @@ namespace 会議室予約.UseCase
             }
 
             // 終了
+        }
+
+
+        public async Task 予約をキャンセルする(予約Id 予約Id, 予約をキャンセルする人のId 予約をキャンセルする人のID) {
+            //var 予約の一覧 = _repository.FetchAll();
+
+            var domainService = new 予約キャンセルDomainService();
+            if (await domainService.キャンセルできるか(予約Id, 予約をキャンセルする人のID)) {
+
+                var 予約 = _repository.Get(予約Id);
+                _repository.RemoveBy(予約Id);
+            }
         }
     }
 }
