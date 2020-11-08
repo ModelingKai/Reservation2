@@ -1,5 +1,7 @@
+using System.Threading.Tasks;
 using 会議室予約.Domain;
 using 会議室予約.Domain.Exceptions;
+using 会議室予約.UseCase.Exceptions;
 
 namespace 会議室予約.UseCase
 {
@@ -22,7 +24,6 @@ namespace 会議室予約.UseCase
                 // エラーで返す。
                 throw new UseCaseException(ex);
             }
-
 
             // 終了
         }
