@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  Reservation2-test:
+    runs-on: ubuntu-latest
+    name: dotnet-test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: dotnet-test
+        uses: ./Test/ # Uses an action in the root directory
+        id: dotnet-test
+        with:
+          sln-path: '/github/workspace/Reservation2.sln'
