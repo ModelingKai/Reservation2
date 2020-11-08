@@ -11,4 +11,4 @@ jobs:
         uses: ./Test/ # Uses an action in the root directory
         id: dotnet-test
         with:
-          sln-path: '/github/workspace/content'
+          sln-path: '/github/workspace/Reservation2.sln'
