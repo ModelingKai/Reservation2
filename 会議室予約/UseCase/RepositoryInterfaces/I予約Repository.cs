@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using 会議室予約.Domain;
 
-namespace 会議室予約.UseCase.Repository
+namespace 会議室予約.UseCase.RepositoryInterfaces
 {
     public interface I予約Repository
     {
