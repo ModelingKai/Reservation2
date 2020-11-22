@@ -1,6 +1,7 @@
 using 会議室予約.Domain.Exceptions;
+using 会議室予約.Domain.会議室;
 
-namespace 会議室予約.Domain
+namespace 会議室予約.Domain.予約
 {
     /// <summary>
     /// 予約ルートエンティティ

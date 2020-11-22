@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using 会議室予約.Domain;
 using 会議室予約.Domain.DomainService;
 using 会議室予約.Domain.Exceptions;
+using 会議室予約.Domain.予約;
 using 会議室予約.UseCase.Exceptions;
 using 会議室予約.UseCase.RepositoryInterfaces;
 

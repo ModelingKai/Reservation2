@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Xunit;
 using Xunit.Abstractions;
 using 会議室予約.Domain;
+using 会議室予約.Domain.予約;
 
 namespace Test
 {

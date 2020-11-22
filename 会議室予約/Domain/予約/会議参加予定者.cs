@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-
-namespace 会議室予約.Domain
+namespace 会議室予約.Domain.予約
 {
     public class 会議参加予定者
     {

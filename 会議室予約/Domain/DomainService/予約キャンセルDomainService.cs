@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using 会議室予約.Domain.予約;
 
 namespace 会議室予約.Domain.DomainService
 {

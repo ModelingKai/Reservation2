@@ -1,5 +1,6 @@
 using Xunit;
 using 会議室予約.Domain;
+using 会議室予約.Domain.予約;
 
 namespace Test
 {
