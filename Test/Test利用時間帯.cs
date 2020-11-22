@@ -4,6 +4,7 @@ using Xunit;
 using Xunit.Abstractions;
 using 会議室予約.Domain;
 using 会議室予約.Domain.予約;
+using 会議室予約.Domain.予約可能ルール.開放時間;
 
 namespace Test
 {
@@ -20,8 +21,8 @@ namespace Test
         [ClassData(typeof(利用時間帯テストデータ))]
         public void 利用時間帯の比較テストNGパターン(時分 sut_start, 時分 sut_end, 時分 other_start, 時分 other_end)
         {
-            var sut = new 利用時間帯(sut_start, sut_end);
-            var other = new 利用時間帯(other_start, other_end);
+            var sut = new 開放時間(sut_start, sut_end);
+            var other = new 開放時間(other_start, other_end);
 
             Assert.True(sut.IsOverrap(other));
         }
@@ -30,8 +31,8 @@ namespace Test
         [ClassData(typeof(利用時間帯IsContainsデータ))]
         public void 利用時間帯のIsContains成功パターン(時分 sut_start, 時分 sut_end, 時分 other_start, 時分 other_end)
         {
-            var sut = new 利用時間帯(sut_start, sut_end);
-            var other = new 利用時間帯(other_start, other_end);
+            var sut = new 開放時間(sut_start, sut_end);
+            var other = new 開放時間(other_start, other_end);
 
             Assert.True(sut.IsContains(other));
         }
@@ -39,8 +40,8 @@ namespace Test
         [ClassData(typeof(利用時間帯IsContains失敗データ))]
         public void 利用時間帯のIsContains失敗パターン(時分 sut_start, 時分 sut_end, 時分 other_start, 時分 other_end)
         {
-            var sut = new 利用時間帯(sut_start, sut_end);
-            var other = new 利用時間帯(other_start, other_end);
+            var sut = new 開放時間(sut_start, sut_end);
+            var other = new 開放時間(other_start, other_end);
 
             Assert.False(sut.IsContains(other));
         }

@@ -1,6 +1,6 @@
 using System;
 
-namespace 会議室予約.Domain.予約
+namespace 会議室予約.Domain.予約.利用期間
 {
     public class 開始年月日時分
     {

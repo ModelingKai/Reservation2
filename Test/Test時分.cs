@@ -1,6 +1,7 @@
 using Xunit;
 using 会議室予約.Domain;
 using 会議室予約.Domain.予約;
+using 会議室予約.Domain.予約可能ルール.開放時間;
 
 namespace Test
 {

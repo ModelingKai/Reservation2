@@ -1,6 +1,7 @@
 ﻿using System;
+using 会議室予約.Domain.予約.利用期間;
 
-namespace 会議室予約.Domain.予約
+namespace 会議室予約.Domain.予約可能ルール
 {
     public class 利用可能日
     {

@@ -4,6 +4,7 @@ using Xunit.Sdk;
 using 会議室予約.Domain;
 using 会議室予約.Domain.Exceptions;
 using 会議室予約.Domain.予約;
+using 会議室予約.Domain.予約.利用期間;
 using 会議室予約.Domain.会議室;
 
 namespace Test

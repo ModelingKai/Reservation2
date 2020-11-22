@@ -1,6 +1,6 @@
 using System;
 
-namespace 会議室予約.Domain.予約
+namespace 会議室予約.Domain.予約可能ルール.開放時間
 {
     public class 時分 : IEquatable<時分>, IComparable<時分>
     {

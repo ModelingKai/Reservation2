@@ -1,4 +1,5 @@
 using 会議室予約.Domain.Exceptions;
+using 会議室予約.Domain.予約可能ルール.開放時間;
 using 会議室予約.Domain.会議室;
 
 namespace 会議室予約.Domain.予約
@@ -11,14 +12,14 @@ namespace 会議室予約.Domain.予約
         private 予約Id 予約Id;
 
         private 予約者Id よやくしゃ;
-        private 利用期間 りようきかん;
+        private 利用期間.利用期間 りようきかん;
         private 会議室Id かいぎしつ;
         // TODO: ファーストコレクションかな
         private 会議参加予定者 かいぎさんかよていしゃ;
 
-        public 予約(予約者Id よやくしゃ, 利用期間 りようきかん, 会議室Id かいぎしつ, 会議参加予定者 かいぎさんかよていしゃ)
+        public 予約(予約者Id よやくしゃ, 利用期間.利用期間 りようきかん, 会議室Id かいぎしつ, 会議参加予定者 かいぎさんかよていしゃ)
         {
-            if (!new 予約可能ルール().IsSatisfied(りようきかん))
+            if (!new 予約可能ルール.予約可能ルール().IsSatisfied(りようきかん))
             {
                 throw new ルール違反Exception("おまえ、値ちがうんやで");
             }
@@ -39,7 +40,7 @@ namespace 会議室予約.Domain.予約
         /// <param name="りようきかん"></param>
         /// <param name="かいぎしつ"></param>
         /// <param name="かいぎさんかよていしゃ"></param>
-        public 予約(予約Id よやくid, 予約者Id よやくしゃ, 利用期間 りようきかん, 会議室Id かいぎしつ, 会議参加予定者 かいぎさんかよていしゃ)
+        public 予約(予約Id よやくid, 予約者Id よやくしゃ, 利用期間.利用期間 りようきかん, 会議室Id かいぎしつ, 会議参加予定者 かいぎさんかよていしゃ)
         {
             this.予約Id = よやくid;
             this.よやくしゃ = よやくしゃ;
@@ -48,14 +49,14 @@ namespace 会議室予約.Domain.予約
             this.かいぎさんかよていしゃ = かいぎさんかよていしゃ;
         }
 
-        public 利用時間帯 りようじかんたい()
+        public 開放時間 りようじかんたい()
         {
             return りようきかん.りようじかんたい();
         }
 
-        public 予約 変更する(予約Id 予約Id, 予約者Id 予約者Id, 利用期間 利用期間, 会議室Id 会議室Id, 会議参加予定者 会議参加予定者)
+        public 予約 変更する(予約Id 予約Id, 予約者Id 予約者Id, 利用期間.利用期間 利用期間, 会議室Id 会議室Id, 会議参加予定者 会議参加予定者)
         {
-            if (!new 予約変更可能ルール().IsSatisfied(りようきかん))
+            if (!new 予約変更可能ルール.予約変更可能ルール().IsSatisfied(りようきかん))
             {
                 throw new ルール違反Exception("おまえ、値ちがうんやで2");
             }
