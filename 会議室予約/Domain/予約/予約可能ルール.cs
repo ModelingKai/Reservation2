@@ -34,11 +34,6 @@ namespace 会議室予約.Domain.予約
                 return false;
             }
 
-            // TODO: 判定実装するべ。
-            var 利用可能時間帯 = new 利用可能時間帯();
-            //if (利用可能時間帯.範囲外(_利用期間)) {
-            //    return false;
-            //}
 
             // 起点日から◯日後のやつ
             var 利用可能日 = new 利用可能日(_予約可能期間の起点日);
