@@ -5,7 +5,7 @@ namespace 会議室予約.Domain
     /// <summary>
     /// 利用可能日：名前付けられた式
     /// </summary>
-    public class 予約可能ルール
+    public class 予約変更可能ルール
     {
         private readonly 利用時間帯 会議室オープン時間;
 
@@ -16,7 +16,7 @@ namespace 会議室予約.Domain
 
 
         
-        public 予約可能ルール()
+        public 予約変更可能ルール()
         {
             var start = new 時分(10, 0);
             var end = new 時分(19, 0);

@@ -16,8 +16,6 @@ namespace 会議室予約.UseCase
             _repository = repository;
         }
 
-
-        
         public async Task 会議室予約するAsync(予約Request request)
         {
             try
@@ -25,8 +23,7 @@ namespace 会議室予約.UseCase
                 var よやく = new 予約(request.よやくしゃ,
                     request.りようきかん,
                     request.かいぎしつ,
-                    request.かいぎさんかよていしゃ,
-                    new 予約可能ルール());
+                    request.かいぎさんかよていしゃ);
                             
                 await _repository.Add(よやく);
             }

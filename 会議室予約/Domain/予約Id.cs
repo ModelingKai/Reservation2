@@ -2,7 +2,7 @@
 
 namespace 会議室予約.Domain
 {
-    internal class 予約Id
+    public class 予約Id
     {
         private string Value { get; }
 

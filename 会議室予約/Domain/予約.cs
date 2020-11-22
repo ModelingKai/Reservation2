@@ -14,7 +14,6 @@ namespace 会議室予約.Domain
         private 会議室Id かいぎしつ;
         // TODO: ファーストコレクションかな
         private 会議参加予定者 かいぎさんかよていしゃ;
-        private 予約ステータス すてーたす;
 
         public 予約(予約者Id よやくしゃ, 利用期間 りようきかん, 会議室Id かいぎしつ, 会議参加予定者 かいぎさんかよていしゃ)
         {
@@ -25,6 +24,23 @@ namespace 会議室予約.Domain
 
             // 予約可能かどうか判定する?
             予約Id = 予約Id.Create();
+            this.よやくしゃ = よやくしゃ;
+            this.りようきかん = りようきかん;
+            this.かいぎしつ = かいぎしつ;
+            this.かいぎさんかよていしゃ = かいぎさんかよていしゃ;
+        }
+
+        /// <summary>
+        /// 変更用のコンストラクタ
+        /// </summary>
+        /// <param name="よやくid"></param>
+        /// <param name="よやくしゃ"></param>
+        /// <param name="りようきかん"></param>
+        /// <param name="かいぎしつ"></param>
+        /// <param name="かいぎさんかよていしゃ"></param>
+        public 予約(予約Id よやくid, 予約者Id よやくしゃ, 利用期間 りようきかん, 会議室Id かいぎしつ, 会議参加予定者 かいぎさんかよていしゃ)
+        {
+            this.予約Id = よやくid;
             this.よやくしゃ = よやくしゃ;
             this.りようきかん = りようきかん;
             this.かいぎしつ = かいぎしつ;
@@ -42,13 +58,9 @@ namespace 会議室予約.Domain
             {
                 throw new ルール違反Exception("おまえ、値ちがうんやで2");
             }
-
-
+            
             return new 予約(予約Id, 予約者Id, 利用期間, 会議室Id, 会議参加予定者);
         }
-
-
     }
-
 }
 
