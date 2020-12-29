@@ -10,6 +10,6 @@ namespace 会議室予約.UseCase.RepositoryInterfaces
 
         予約 Get(予約Id 予約Id);
 
-        void RemoveBy(予約Id 予約Id);
+        void Remove(予約Id 予約Id);
     }
 }

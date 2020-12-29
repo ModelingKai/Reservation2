@@ -45,7 +45,7 @@ namespace 会議室予約.UseCase
             if (await domainService.キャンセルできるか(予約Id, 予約をキャンセルする人のID)) {
 
                 var 予約 = _repository.Get(予約Id);
-                _repository.RemoveBy(予約Id);
+                _repository.Remove(予約Id);
             }
         }
     }
