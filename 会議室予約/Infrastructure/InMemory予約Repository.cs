@@ -7,7 +7,7 @@ namespace 会議室予約.Infrastructure
 {
     public class InMemory予約Repository : I予約Repository
     {
-        private Dictionary<予約Id, 予約> storage = new Dictionary<予約Id, 予約>(); 
+        private readonly Dictionary<予約Id, 予約> storage = new Dictionary<予約Id, 予約>(); 
         
         public Task Add(予約 よやく)
         {
