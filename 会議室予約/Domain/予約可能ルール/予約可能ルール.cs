@@ -16,8 +16,6 @@ namespace 会議室予約.Domain.予約可能ルール
         // TODO: これは本当にDateTimeでいいのか?
         private readonly DateTime _予約可能期間の起点日;
 
-
-        
         public 予約可能ルール()
         {
             var start = new 時分(10, 0);
@@ -36,9 +34,8 @@ namespace 会議室予約.Domain.予約可能ルール
                 return false;
             }
 
-
             // 起点日から◯日後のやつ
-            var 利用可能日 = new 利用可能日(_予約可能期間の起点日);
+            var 利用可能日 = new 利用可能日(起点日);
             if (!利用可能日.含むのかしら(_開始年月日時分)) {
                 return false;
             }

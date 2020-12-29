@@ -22,7 +22,7 @@ namespace Test
 
 
             Assert.Throws<ルール違反Exception>(() =>
-                new 予約(new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
+                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
             );
         }
 
@@ -36,7 +36,7 @@ namespace Test
             var 利用期間 = new 利用期間(かいし, しゅうりょう, 起点日);
 
             Assert.Throws<ルール違反Exception>(() =>
-                new 予約(new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
+                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
             );
         }
         [Fact]
@@ -49,7 +49,7 @@ namespace Test
             var 利用期間 = new 利用期間(かいし, しゅうりょう, 起点日);
 
             Assert.Throws<ルール違反Exception>(() =>
-                new 予約(new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
+                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
             );
         }
         

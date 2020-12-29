@@ -12,8 +12,8 @@ namespace 会議室予約.Domain.予約
         }
         public 予約Id(string value)
         {
-            var guid = Guid.Parse(value);
-            Value = guid.ToString();
+            // var guid = Guid.Parse(value);
+            Value = value;
         }
 
 

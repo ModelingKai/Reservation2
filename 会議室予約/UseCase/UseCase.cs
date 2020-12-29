@@ -25,7 +25,7 @@ namespace 会議室予約.UseCase
             {
                 var 予約Id = _factory.Create();
 
-                var よやく = new 予約(予約Id,
+                var よやく = 予約.Create(予約Id,
                     request.よやくしゃ,
                     request.りようきかん,
                     request.かいぎしつ,
