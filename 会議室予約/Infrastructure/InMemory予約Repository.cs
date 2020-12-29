@@ -17,12 +17,13 @@ namespace 会議室予約.Infrastructure
 
         public 予約 Get(予約Id 予約Id)
         {
-            throw new System.NotImplementedException();
+            // TODO: Option型みたいなの(None/Some) を返すようにする？
+            return storage[予約Id];
         }
 
         public void Remove(予約Id 予約Id)
         {
-            throw new System.NotImplementedException();
+            storage.Remove(予約Id);
         }
     }
 }
