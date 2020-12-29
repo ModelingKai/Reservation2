@@ -10,7 +10,6 @@ namespace 会議室予約.Domain.予約
     public class 予約
     {
         private 予約Id 予約Id;
-
         private 予約者Id よやくしゃ;
         private 利用期間.利用期間 りようきかん;
         private 会議室Id かいぎしつ;
@@ -30,6 +29,11 @@ namespace 会議室予約.Domain.予約
             this.りようきかん = りようきかん;
             this.かいぎしつ = かいぎしつ;
             this.かいぎさんかよていしゃ = かいぎさんかよていしゃ;
+        }
+
+        public 予約Id As予約Id()
+        {
+            return this.予約Id;
         }
 
         /// <summary>
