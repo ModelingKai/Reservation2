@@ -11,17 +11,22 @@ namespace 会議室予約.UseCase
     public class UseCase
     {
         private readonly I予約Repository _repository;
+        private readonly I予約IdFactory _factory;
 
-        public UseCase(I予約Repository repository)
+        public UseCase(I予約Repository repository, I予約IdFactory factory)
         {
             _repository = repository;
+            _factory = factory;
         }
 
         public async Task 会議室予約するAsync(予約Request request)
         {
             try
             {
-                var よやく = new 予約(request.よやくしゃ,
+                var 予約Id = _factory.Create();
+
+                var よやく = new 予約(予約Id,
+                    request.よやくしゃ,
                     request.りようきかん,
                     request.かいぎしつ,
                     request.かいぎさんかよていしゃ);

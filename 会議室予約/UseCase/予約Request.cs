@@ -10,6 +10,8 @@ namespace 会議室予約.UseCase
     /// </summary>
     public class 予約Request
     {
+        // TODO: コンストラクタ作ってイミュータブルにする。
+
         public 予約者Id よやくしゃ { get; set; }
         public 利用期間 りようきかん { get; set; }
         public 会議室Id かいぎしつ { get; set; }
