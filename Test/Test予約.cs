@@ -5,6 +5,7 @@ using 会議室予約.Domain;
 using 会議室予約.Domain.Exceptions;
 using 会議室予約.Domain.予約;
 using 会議室予約.Domain.予約.利用期間;
+using 会議室予約.Domain.予約可能ルール;
 using 会議室予約.Domain.会議室;
 
 namespace Test
@@ -18,11 +19,11 @@ namespace Test
             var しゅうりょう = new 終了年月日時分(2020, 10, 20, 11,0);
             var 起点日 = new DateTime(2020, 10, 19);
 
-            var 利用期間 = new 利用期間(かいし, しゅうりょう, 起点日);
+            var 利用期間 = new 利用期間(かいし, しゅうりょう);
 
 
             Assert.Throws<ルール違反Exception>(() =>
-                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
+                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者(), new 予約申請受付日(起点日))
             );
         }
 
@@ -33,10 +34,10 @@ namespace Test
             var しゅうりょう = new 終了年月日時分(2020, 10, 20, 19,15);
             var 起点日 = new DateTime(2020, 10, 19);
 
-            var 利用期間 = new 利用期間(かいし, しゅうりょう, 起点日);
+            var 利用期間 = new 利用期間(かいし, しゅうりょう);
 
             Assert.Throws<ルール違反Exception>(() =>
-                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
+                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者(), new 予約申請受付日(起点日))
             );
         }
         [Fact]
@@ -46,10 +47,10 @@ namespace Test
             var しゅうりょう = new 終了年月日時分(2021, 10, 20, 10,15);
             var 起点日 = new DateTime(2020, 10, 19);
 
-            var 利用期間 = new 利用期間(かいし, しゅうりょう, 起点日);
+            var 利用期間 = new 利用期間(かいし, しゅうりょう);
 
             Assert.Throws<ルール違反Exception>(() =>
-                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者())
+                予約.Create(new 予約Id("0"),  new 予約者Id(), 利用期間, new 会議室Id(), new 会議参加予定者(), new 予約申請受付日(起点日))
             );
         }
         

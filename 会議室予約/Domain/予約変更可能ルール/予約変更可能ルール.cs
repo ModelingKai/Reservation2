@@ -14,16 +14,15 @@ namespace 会議室予約.Domain.予約変更可能ルール
 
         private 開始年月日時分 _開始年月日時分;
         private 終了年月日時分 _終了年月日時分;
-        // TODO: これは本当にDateTimeでいいのか?
-        private readonly DateTime _予約可能期間の起点日;
 
-
+        private 予約可能期間 _予約可能期間;
         
-        public 予約変更可能ルール()
+        public 予約変更可能ルール(予約申請受付日 予約申請受付日)
         {
+            _予約可能期間 =  new 予約可能期間(予約申請受付日);
+            
             var start = new 時分(10, 0);
             var end = new 時分(19, 0);
-            
             会議室オープン時間 = new 開放時間(start , end);
         }
 
@@ -37,11 +36,8 @@ namespace 会議室予約.Domain.予約変更可能ルール
                 return false;
             }
 
-
-
             // 起点日から◯日後のやつ
-            var 利用可能日 = new 予約可能期間(_予約可能期間の起点日);
-            if (!利用可能日.IsContains(_開始年月日時分)) {
+            if (!_予約可能期間.IsContains(_開始年月日時分)) {
                 return false;
             }
 

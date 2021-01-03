@@ -20,5 +20,7 @@ namespace 会議室予約.Domain.予約.利用期間
             時分 しゅうりょうじふん = new 時分(_終了年月日時分.Value.Hour, _終了年月日時分.Value.Minute);
             return new 開放時間(かいしじふん, しゅうりょうじふん);
         }
+
+        public 開始年月日時分 開始日付 => _開始年月日時分;
     }
 }

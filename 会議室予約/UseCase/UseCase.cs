@@ -3,6 +3,7 @@ using 会議室予約.Domain;
 using 会議室予約.Domain.DomainService;
 using 会議室予約.Domain.Exceptions;
 using 会議室予約.Domain.予約;
+using 会議室予約.Domain.予約可能ルール;
 using 会議室予約.UseCase.Exceptions;
 using 会議室予約.UseCase.RepositoryInterfaces;
 
@@ -19,8 +20,10 @@ namespace 会議室予約.UseCase
             _factory = factory;
         }
 
-        public async Task 会議室予約するAsync(予約Request request)
+        
+        public async Task 会議室予約するAsync(予約Request request, 予約申請受付日 よやくしんせいうけつけび)
         {
+            // Todo: 予約Requestという名前がかなりやばい
             try
             {
                 var 予約Id = _factory.Create();
@@ -29,7 +32,8 @@ namespace 会議室予約.UseCase
                     request.よやくしゃ,
                     request.りようきかん,
                     request.かいぎしつ,
-                    request.かいぎさんかよていしゃ);
+                    request.かいぎさんかよていしゃ,
+                    よやくしんせいうけつけび);
                             
                 await _repository.Add(よやく);
             }

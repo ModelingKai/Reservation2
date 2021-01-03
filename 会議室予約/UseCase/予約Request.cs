@@ -17,7 +17,5 @@ namespace 会議室予約.UseCase
         public 会議室Id かいぎしつ { get; set; }
         public 会議参加予定者 かいぎさんかよていしゃ { get; set; }
         
-        public 
-        
     }
 }

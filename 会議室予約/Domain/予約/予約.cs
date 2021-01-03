@@ -1,4 +1,5 @@
 using 会議室予約.Domain.Exceptions;
+using 会議室予約.Domain.予約可能ルール;
 using 会議室予約.Domain.予約可能ルール.開放時間;
 using 会議室予約.Domain.会議室;
 
@@ -32,9 +33,14 @@ namespace 会議室予約.Domain.予約
         //     this.かいぎさんかよていしゃ = かいぎさんかよていしゃ;
         // }
 
-        public static 予約 Create(予約Id 予約Id, 予約者Id 予約者Id, 利用期間.利用期間 利用期間, 会議室Id 会議室Id, 会議参加予定者 会議参加予定者)
+        public static 予約 Create(予約Id 予約Id,
+                                予約者Id 予約者Id,
+                                利用期間.利用期間 利用期間,
+                                会議室Id 会議室Id,
+                                会議参加予定者 会議参加予定者,
+                                予約申請受付日 予約申請受付日)
         {
-            if (!new 予約可能ルール.予約可能ルール().IsSatisfied(利用期間))
+            if (!new 予約可能ルール.予約可能ルール(予約申請受付日).IsSatisfied(利用期間))
             {
                 throw new ルール違反Exception("おまえ、値ちがうんやで");
             }
@@ -70,9 +76,14 @@ namespace 会議室予約.Domain.予約
             return りようきかん.りようじかんたい();
         }
 
-        public 予約 変更する(予約Id 予約Id, 予約者Id 予約者Id, 利用期間.利用期間 利用期間, 会議室Id 会議室Id, 会議参加予定者 会議参加予定者)
+        public 予約 変更する(予約Id 予約Id,
+                        予約者Id 予約者Id,
+                        利用期間.利用期間 利用期間,
+                        会議室Id 会議室Id,
+                        会議参加予定者 会議参加予定者,
+                        予約申請受付日 予約申請受付日)
         {
-            if (!new 予約変更可能ルール.予約変更可能ルール().IsSatisfied(りようきかん))
+            if (!new 予約変更可能ルール.予約変更可能ルール(予約申請受付日).IsSatisfied(りようきかん))
             {
                 throw new ルール違反Exception("おまえ、値ちがうんやで2");
             }

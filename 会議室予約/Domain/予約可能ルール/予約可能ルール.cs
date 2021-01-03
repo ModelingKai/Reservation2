@@ -10,10 +10,6 @@ namespace 会議室予約.Domain.予約可能ルール
     public class 予約可能ルール
     {
         private readonly 開放時間.開放時間 会議室オープン時間;
-
-        private 開始年月日時分 _開始年月日時分;
-        private 終了年月日時分 _終了年月日時分;
-
         private 予約可能期間 _予約可能期間;
 
         public 予約可能ルール(予約申請受付日 予約申請受付日)
@@ -38,7 +34,9 @@ namespace 会議室予約.Domain.予約可能ルール
 
             // 起点日から◯日後のやつ
             // ルール②
-            if (!_予約可能期間.IsContains(_開始年月日時分)) {
+            
+            if (!_予約可能期間.IsContains(りようきかん.開始日付))
+            {
                 return false;
             }
 
