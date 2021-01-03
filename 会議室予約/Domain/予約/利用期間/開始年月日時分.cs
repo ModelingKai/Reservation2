@@ -10,5 +10,11 @@ namespace 会議室予約.Domain.予約.利用期間
         {
             this.Value = new DateTime(year, month, day, hour, minute, 0);
         }
+
+
+        public DateTime 日付
+        {
+            get => Value.Date;
+        }
     }
 }
