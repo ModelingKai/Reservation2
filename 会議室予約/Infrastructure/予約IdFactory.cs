@@ -9,7 +9,7 @@ namespace 会議室予約.Infrastructure
     {
         public 予約Id Create()
         {
-            throw new NotImplementedException();
+            return new 予約Id(Guid.NewGuid().ToString());
         }
     }
 }
