@@ -1,12 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "会議室利用", "会議室利用\会議室利用.csproj", "{4BD9FE7C-F812-4CE8-895C-1EA0EB45E388}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "会議室利用", "会議室利用\会議室利用.csproj", "{4BD9FE7C-F812-4CE8-895C-1EA0EB45E388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "会議室予約", "会議室予約\会議室予約.csproj", "{DB39909B-181F-453A-8C42-14C4EE18D821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "会議室予約", "会議室予約\会議室予約.csproj", "{DB39909B-181F-453A-8C42-14C4EE18D821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{585FCBAC-9A22-4A2B-B24E-507EF477091A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{585FCBAC-9A22-4A2B-B24E-507EF477091A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{1DA9F832-0F50-454D-B881-2348DF259C12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{1DA9F832-0F50-454D-B881-2348DF259C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{6199A025-48AB-4460-AEDA-861D2011A739}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +35,15 @@ Global
 		{1DA9F832-0F50-454D-B881-2348DF259C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA9F832-0F50-454D-B881-2348DF259C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DA9F832-0F50-454D-B881-2348DF259C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6199A025-48AB-4460-AEDA-861D2011A739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6199A025-48AB-4460-AEDA-861D2011A739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6199A025-48AB-4460-AEDA-861D2011A739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6199A025-48AB-4460-AEDA-861D2011A739}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62391BD0-E558-43BF-9D23-037F8A94AB64}
 	EndGlobalSection
 EndGlobal
