@@ -34,8 +34,8 @@ namespace 会議室予約.Domain.予約可能ルール.開放時間
         public bool IsContains(開放時間 other)
         {
             if (this.Equals(other)) return true;
-            return this._かいしじふん.CompareTo(other._かいしじふん) < 0
-                   && this._しゅうりょうじふん.CompareTo(other._しゅうりょうじふん) > 0;
+            return this._かいしじふん.CompareTo(other._かいしじふん) <= 0
+                   && this._しゅうりょうじふん.CompareTo(other._しゅうりょうじふん) >= 0;
         }
     }
 }
