@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -66,8 +68,23 @@ namespace WebApi.Controllers
             request.よやくしゃ = new 予約者Id();
             request.かいぎしつ = new 会議室Id();
 
-            await useCase.会議室予約するAsync(request, new 予約申請受付日(起点日));
-            
+            try
+            {
+                await useCase.会議室予約するAsync(request, new 予約申請受付日(起点日));
+            }
+            catch (Exception e) {
+
+                var resp = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    //Content = new StringContent(e.InnerException.Message),
+                    ReasonPhrase = e.InnerException.Message
+                };
+                //throw new System.Web.Http.HttpResponseException(resp);
+                return new JsonResult(resp);
+            }
+
+
+
             return new JsonResult(reserve);
         }
 
