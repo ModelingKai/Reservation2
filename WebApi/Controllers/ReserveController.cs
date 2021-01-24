@@ -10,6 +10,7 @@ using 会議室予約.Domain.予約可能ルール;
 using 会議室予約.Domain.会議室;
 using 会議室予約.Infrastructure;
 using 会議室予約.UseCase;
+using 会議室予約.UseCase.RepositoryInterfaces;
 
 namespace WebApi.Controllers
 {
@@ -17,6 +18,12 @@ namespace WebApi.Controllers
     [Route("[controller]")]
     public class ReserveController : ControllerBase
     {
+        private static I予約Repository _repository;
+        static ReserveController()
+        {
+            _repository = new InMemory予約Repository();
+        }
+        
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -32,9 +39,9 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult> Post(Reserve reserve)
         {
-            var repository = new InMemory予約Repository();
+            // var repository = new InMemory予約Repository();
             var factory = new 予約IdFactory();
-            var useCase = new UseCase(repository, factory);
+            var useCase = new UseCase(_repository, factory);
             
             var request = new 予約Request();
 
