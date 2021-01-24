@@ -1,4 +1,5 @@
 using 会議室予約.Domain.Exceptions;
+using 会議室予約.Domain.予約.Query;
 using 会議室予約.Domain.予約可能ルール;
 using 会議室予約.Domain.予約可能ルール.開放時間;
 using 会議室予約.Domain.会議室;
@@ -32,6 +33,10 @@ namespace 会議室予約.Domain.予約
         public 予約Id As予約Id()
         {
             return this.予約Id;
+        }
+
+        public 予約QueryModel As予約QueryModel() {
+            return new 予約QueryModel(予約Id, りようきかん);
         }
         
 

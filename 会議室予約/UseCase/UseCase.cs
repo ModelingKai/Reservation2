@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using 会議室予約.Domain;
 using 会議室予約.Domain.DomainService;
 using 会議室予約.Domain.Exceptions;
 using 会議室予約.Domain.予約;
+using 会議室予約.Domain.予約.Query;
 using 会議室予約.Domain.予約可能ルール;
 using 会議室予約.UseCase.Exceptions;
 using 会議室予約.UseCase.RepositoryInterfaces;
@@ -21,9 +23,10 @@ namespace 会議室予約.UseCase
             _factory = factory;
         }
 
-        public async Task<List<予約>> 会議室一覧を取得するAsync()
+        public async Task<List<予約QueryModel>> 会議室一覧を取得するAsync()
         {
-            return _repository.GetAll();
+            var 予約List = _repository.GetAll();
+            return 予約List.Select(x => x.As予約QueryModel()).ToList();
         }
         
         public async Task 会議室予約するAsync(予約Request request, 予約申請受付日 よやくしんせいうけつけび)

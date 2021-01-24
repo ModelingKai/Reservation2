@@ -93,9 +93,6 @@ namespace WebApi.Controllers
         public async Task<ActionResult> Get()
         {
             var result = await _useCase.会議室一覧を取得するAsync();
-            
-
-            
             return new JsonResult(result);
         }
     }
