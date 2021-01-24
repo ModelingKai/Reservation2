@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\会議室予約\会議室予約.csproj" />
+  </ItemGroup>
+
 
 </Project>
