@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using 会議室予約.Domain;
 using 会議室予約.Domain.DomainService;
@@ -20,6 +21,10 @@ namespace 会議室予約.UseCase
             _factory = factory;
         }
 
+        public async Task<List<予約>> 会議室一覧を取得するAsync()
+        {
+            return _repository.GetAll();
+        }
         
         public async Task 会議室予約するAsync(予約Request request, 予約申請受付日 よやくしんせいうけつけび)
         {

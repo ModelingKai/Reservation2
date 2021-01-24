@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using 会議室予約.Domain.予約;
 using 会議室予約.UseCase.RepositoryInterfaces;
@@ -19,6 +20,11 @@ namespace 会議室予約.Infrastructure
         {
             // TODO: Option型みたいなの(None/Some) を返すようにする？
             return storage[予約Id];
+        }
+
+        public List<予約> GetAll()
+        {
+            return storage.Values.ToList();
         }
 
         public void Remove(予約Id 予約Id)

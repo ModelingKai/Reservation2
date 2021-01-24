@@ -21,9 +21,13 @@ namespace WebApi.Controllers
     public class ReserveController : ControllerBase
     {
         private static I予約Repository _repository;
+        private static I予約IdFactory _factory;
+        private static UseCase _useCase;
         static ReserveController()
         {
             _repository = new InMemory予約Repository();
+            _factory = new 予約IdFactory();
+            _useCase = new UseCase(_repository, _factory);
         }
         
         private static readonly string[] Summaries = new[]
@@ -42,8 +46,8 @@ namespace WebApi.Controllers
         public async Task<ActionResult> Post(Reserve reserve)
         {
             // var repository = new InMemory予約Repository();
-            var factory = new 予約IdFactory();
-            var useCase = new UseCase(_repository, factory);
+            // var factory = new 予約IdFactory();
+            // var useCase = new UseCase(_repository, factory);
             
             var request = new 予約Request();
 
@@ -70,7 +74,7 @@ namespace WebApi.Controllers
 
             try
             {
-                await useCase.会議室予約するAsync(request, new 予約申請受付日(起点日));
+                await _useCase.会議室予約するAsync(request, new 予約申請受付日(起点日));
             }
             catch (Exception e) {
 
@@ -82,16 +86,17 @@ namespace WebApi.Controllers
                 //throw new System.Web.Http.HttpResponseException(resp);
                 return new JsonResult(resp);
             }
-
-
-
             return new JsonResult(reserve);
         }
 
         [HttpGet]
-        public async Task<ActionResult<string>> Get()
+        public async Task<ActionResult> Get()
         {
-            return new JsonResult("a");
+            var result = await _useCase.会議室一覧を取得するAsync();
+            
+
+            
+            return new JsonResult(result);
         }
     }
 }
