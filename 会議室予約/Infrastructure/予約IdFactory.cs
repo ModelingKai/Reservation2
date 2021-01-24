@@ -5,7 +5,7 @@ using 会議室予約.Domain.予約;
 
 namespace 会議室予約.Infrastructure
 {
-    class 予約IdFactory : I予約IdFactory
+    public class 予約IdFactory : I予約IdFactory
     {
         public 予約Id Create()
         {
