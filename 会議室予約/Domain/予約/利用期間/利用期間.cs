@@ -14,6 +14,7 @@ namespace 会議室予約.Domain.予約.利用期間
             this._終了年月日時分 = 終了年月日時分;
         }
 
+        //TODO: こんなところに開放時間・・・？
         public 開放時間 りようじかんたい()
         {
             時分 かいしじふん = new 時分(_開始年月日時分.Value.Hour, _開始年月日時分.Value.Minute);
